@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Listing
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from listings.choices import price_choices, brand_choices, model_choices, origin_choices
+from listings.choices import price_choices, brand_model_choices, color_choices, hand_drive_choices, wheels_drive_choices
 
 # Create your views here.
 def index(request):
@@ -11,7 +11,7 @@ def index(request):
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
     # pass database records into listings context
-    context = {'listings': paged_listings, 'name': 'something', 'age': 25}
+    context = {'listings': paged_listings, 'total': len(listings)}
     return render(request, 'listings/listings.html', context)
 
 def listing(request, listing_id):
@@ -20,32 +20,36 @@ def listing(request, listing_id):
     return render(request, 'listings/listing.html', context)
 
 def search(request):
-    queryset_list = Listing.objects.order_by('-list_date')
+    queryset_list = Listing.objects.order_by('-list_date').filter(is_published=True)
     if 'keywords' in request.GET:
         keywords = request.GET['keywords']
         if keywords:
             queryset_list = queryset_list.filter(description__icontains=keywords)
-    if 'Title' in request.GET:
-        Title = request.GET['Title']
-        if Title:
-            queryset_list = queryset_list.filter(title__icontains=Title)
-    if 'District' in request.GET:
-        District = request.GET['District']
-        if District:
-            queryset_list = queryset_list.filter(district__iexact=District)
+    if 'brand_model' in request.GET:
+        brand_model = request.GET['brand_model']
+        if brand_model:
+            queryset_list = queryset_list.filter(brand__iexact=brand_model[:20].strip()).filter(model__iexact=brand_model[21:].strip())
+    if 'color' in request.GET:
+        color = request.GET['color']
+        if color:
+            queryset_list = queryset_list.filter(color__iexact=color)
     if 'price' in request.GET:
         price = request.GET['price']
         if price:
             queryset_list = queryset_list.filter(price__lte=price)
-    if 'bedrooms' in request.GET:
-        bedrooms = request.GET['bedrooms']
-        if bedrooms:
-            queryset_list = queryset_list.filter(bedrooms__lte=bedrooms)
+    if 'hand_drive' in request.GET:
+        hand_drive = request.GET['hand_drive']
+        queryset_list = queryset_list.filter(hand_drive__iexact=hand_drive)
+    if 'wheels_drive' in request.GET:
+        wheels_drive = request.GET['wheels_drive']
+        queryset_list = queryset_list.filter(wheels_drive__iexact=wheels_drive)
     context = {
         'listings': queryset_list,
         'price_choices': price_choices,
-        'bedroom_choices': bedroom_choices,
-        'district_choices': district_choices,
+        'brand_model_choices': brand_model_choices,
+        'color_choices': color_choices,
+        'hand_drive_choices': hand_drive_choices,
+        'wheels_drive_choices': wheels_drive_choices,
         'values': request.GET,
         'total': len(queryset_list),
     }

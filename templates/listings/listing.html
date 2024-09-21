@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 {% load humanize %}
 <!-- tab title -->
-{% block title %}  | {{listing.title}} {% endblock %}
+{% block title %}  | {{listing.model}} {% endblock %}
 {% block content %}
 
 <section id="showcase-inner" class="py-5 text-white">
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <h1 class="display-4">{{listing.title}}</h1>
-          <p class="lead"><i class="fas fa-map-marker"></i>District: {{listing.district}}</p>
+          <h1 class="display-4">{{listing.brand}}</h1>
+          <h2 class="display-4">{{listing.model}}</h2>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
           <li class="breadcrumb-item">
             <a href={% url "listings" %}>Listings</a>
           </li>
-          <li class="breadcrumb-item active">{{listing.title}}</li>
+          <li class="breadcrumb-item active">{{listing.model}}</li>
         </ol>
       </nav>
     </div>
@@ -137,46 +137,59 @@
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-money-bill-alt"></i>Asking Price:
+                  <i class="fas fa-money-bill-alt"></i>Asking Price: 
                   <span class="float-right">HK$ {{listing.price | intcomma }}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bed"></i>Bedrooms:
-                  <span class="float-right">{{listing.bedrooms}}</span>
+                  Origin: 
+                  <span class="float-right">{{listing.origin}}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bath"></i>Bathrooms:
-                  <span class="float-right">{{listing.bathrooms}}</span>
+                  Doors: 
+                  <span class="float-right">{{listing.doors}}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-dumbbell"></i>ClubHouses:
-                  <span class="float-right">{{listing.clubhouse}}</span>
+                  Hand Drive:
+                  <span class="float-right">{{listing.hand_drive}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  Milage:
+                  <span class="float-right">{{listing.milage}}</span>
                 </li>
               </ul>
             </div>
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-th-large"></i>Square Feet:
-                  <span class="float-right">{{listing.sqft | intcomma }}</span>
+                  Brand: 
+                  <span class="float-right">{{listing.brand}}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-square"></i>Estate Size:
-                  <span class="float-right">{{listing.estate_size}} sq. feet</span>
+                  Color: 
+                  <span class="float-right">{{listing.color}}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-calendar"></i>Listing Date:
-                  <span class="float-right">{{listing.list_date | timesince }}</span>
+                  Seats: 
+                  <span class="float-right">{{listing.seats}}</span>
                 </li>
                 <li class="list-group-item text-secondary">
-                  <i class="fas fa-bed"></i>Realtor:
-                  <span class="float-right">{{listing.realtor}}</span>
+                  Wheels Drive: 
+                  <span class="float-right">{{listing.wheels_drive}}</span>
+                </li>
+                <li class="list-group-item text-secondary">
+                  Range: 
+                  <span class="float-right">{{listing.range}}</span>
                 </li>
               </ul>
             </div>
           </div>
-
-          <!-- Description -->
+          <!-- Field -->
+          <div class="row mb-5">
+            <div class="col-md-12">
+              <h6 class="display-4">Listed Since: {{listing.list_date}}</h6>
+            </div>
+          </div>
+              <!-- Description -->
           <div class="row mb-5">
             <div class="col-md-12">
               {{listing.description}}
@@ -187,12 +200,12 @@
           <div class="card mb-3">
             <img
               class="card-img-top"
-              src={{listing.realtor.photo.url}}
+              src={{listing.broker.photo.url}}
               alt=""
             />
             <div class="card-body">
-              <h5 class="card-title">Property Realtor</h5>
-              <h6 class="text-secondary">{{listing.realtor}}</h6>
+              <h5 class="card-title">E-Car Broker</h5>
+              <h6 class="text-secondary">{{listing.broker}}</h6>
             </div>
           </div>
           <button
@@ -226,16 +239,21 @@
             <input type="hidden" name="user_id" value="0" />
             {% endif %}
             <!-- add realtor email -->
-            <input type="hidden" name="realtor_email" value="{{listing.realtor.email}}" />
+            <input type="hidden" name="broker_email" value="{{listing.broker.email}}" />
             <input type="hidden" name="listing_id" value="{{listing.id}}" />
             <div class="form-group">
-              <label for="property_name" class="col-form-label">Property:</label>
-              <input type="text" name="listing_title" class="form-control"
-              value="{{listing.title}}" readonly />
+              <label for="listing_brand" class="col-form-label">Brand:</label>
+              <input type="text" name="listing_brand" class="form-control" id="listing_brand"
+              value="{{listing.brand}}" readonly />
+            </div>
+            <div class="form-group">
+              <label for="listing_model" class="col-form-label">Model:</label>
+              <input type="text" name="listing_model" class="form-control" id="listing_model"
+              value="{{listing.model}}" readonly />
             </div>
             <div class="form-group">
               <label for="name" class="col-form-label">Name:</label>
-              <input type="text" name="name" class="form-control" 
+              <input type="text" name="name" class="form-control" id="name"
               {% if user.is_authenticated %}
               value="{{user.first_name}} {{user.last_name}}"
               {% endif %}
@@ -244,7 +262,7 @@
             </div>
             <div class="form-group">
               <label for="email" class="col-form-label">Email:</label>
-              <input type="email" name="email" class="form-control"
+              <input type="email" name="email" class="form-control" id="email"
               {% if user.is_authenticated %}
               value="{{user.email}}"
               {% endif %}
@@ -253,12 +271,13 @@
             </div>
             <div class="form-group">
               <label for="phone" class="col-form-label">Phone:</label>
-              <input type="text" name="phone" class="form-control"
+              <input type="text" name="phone" class="form-control" id="phone"
               placeholder="any" />
             </div>
             <div class="form-group">
               <label for="message" class="col-form-label">Message:</label>
-              <textarea name="message" class="form-control" placeholder="any"></textarea>
+              <textarea name="message" class="form-control" id="message"
+              placeholder="any"></textarea>
             </div>
             <hr />
             <input

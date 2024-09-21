@@ -18,33 +18,31 @@
                   name="keywords"
                   class="form-control"
                   value="{{values.keywords}}"
-                  placeholder="Keyword (Bathrooms, ClubHouse, etc)"
-                />
+                  placeholder="Keyword (Origin, Doors, Seats, Milage, Range etc)"
+                  />
               </div>
-
               <div class="col-md-4 mb-3">
-                <label class="sr-only">Title</label>
-                <input
-                  type="text"
-                  name="Title"
-                  class="form-control"
-                  value="{{values.Title}}"
-                  placeholder="Title"
-                />
-              </div>
-
-              <div class="col-md-4 mb-3">
-                <label class="sr-only">District</label>
-                <select name="District" class="form-control">
-                  <option selected="true" disabled="disabled">
-                    Districts (All)
-                  </option>
-                  {% for key, value in district_choices.items %}
-                  <option value="{{key}}"
-                  {% if key == values.District %}
+                <label class="sr-only">Brand                Model</label>
+                <select name="brand_model" class="form-control">
+                  {% for key, value in brand_model_choices.items %}
+                  <option value="{{value}}"
+                  {% if value == values.brand_model %}
                     selected
                   {% endif %}>
-                    {{value}}
+                    {{key}}
+                  </option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label class="sr-only">Colour</label>
+                <select name="color" class="form-control">
+                  {% for key, value in color_choices.items %}
+                  <option value="{{value}}"
+                  {% if value == values.color %}
+                    selected
+                  {% endif %}>
+                    {{key}}
                   </option>
                   {% endfor %}
                 </select>
@@ -53,32 +51,40 @@
             <!-- Form Row 2 -->
             <div class="form-row">
               <div class="col-md-6 mb-3">
-                <label class="sr-only">Bedrooms</label>
-                <select name="bedrooms" class="form-control">
-                  <option selected="true" disabled="disabled">
-                    Bedrooms (Any)
-                  </option>
-                  {% for key, value in bedroom_choices.items %}
-                  <option value="{{key}}"
-                  {% if key == values.bedrooms %}
+                <label class="sr-only">Hand Drive</label>
+                <select name="hand_drive" class="form-control">
+                  {% for key, value in hand_drive_choices.items %}
+                  <option value="{{value}}"
+                  {% if value == values.hand_drive %}
                     selected
                   {% endif %}>
-                    {{value}}
+                    {{key}}
                   </option>
                   {% endfor %}
                 </select>
               </div>
               <div class="col-md-6 mb-3">
-                <select name="price" class="form-control">
-                  <option selected="true" disabled="disabled">
-                    Max Price (All)
-                  </option>
-                  {% for key, value in price_choices.items %}
-                  <option value="{{key}}"
-                  {% if key == values.price %}
+                <label class="sr-only">Wheels Drive</label>
+                <select name="wheels_drive" class="form-control">
+                  {% for key, value in wheels_drive_choices.items %}
+                  <option value="{{value}}"
+                  {% if value == values.wheels_drive %}
                     selected
                   {% endif %}>
-                    {{value}}
+                    {{key}}
+                  </option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="sr-only">Max. Price</label>
+                <select name="price" class="form-control">
+                  {% for key, value in price_choices.items %}
+                  <option value="{{value}}"
+                  {% if value == values.price %}
+                    selected
+                  {% endif %}>
+                    {{Key}}
                   </option>
                   {% endfor %}
                 </select>
@@ -110,11 +116,11 @@
     </div>
 </section>
 
-<!-- Listings -->
+<!-- Searched Listings -->
 <section id="listings" class="py-4">
     <div class="container">
       <div class="row">
-        <!-- Listing 1 to s -->
+        <!-- Listing 1 to searched all -->
         {% if listings %}
         {% for listing in listings %}
         <div class="col-md-6 col-lg-4 mb-4">
@@ -131,37 +137,51 @@
             </div>
             <div class="card-body">
               <div class="listing-heading text-center">
-                <h4 class="text-primary">{{listing.title}}</h4>
-                <p>
-                  <i class="fas fa-map-marker text-secondary"></i>District: {{listing.district}}
-                </p>
+                <h4 class="text-primary">{{listing.brand}}</h4>
+                <h5 class="text-secondary">{{listing.model}}</h5>
               </div>
               <hr />
               <div class="row py-2 text-secondary">
                 <div class="col-6">
-                  <i class="fas fa-th-large"></i>Sq. Feet: {{listing.sqft | intcomma }}
+                  Origin: {{listing.origin}}
                 </div>
                 <div class="col-6">
-                  <i class="fas fa-car"></i>ClubHouses: {{listing.clubhouse}}
+                  Color: {{listing.color}}
                 </div>
               </div>
               <div class="row py-2 text-secondary">
                 <div class="col-6">
-                  <i class="fas fa-bed"></i>Bedrooms: {{listing.bedrooms}}
+                  Doors: {{listing.doors}}
                 </div>
                 <div class="col-6">
-                  <i class="fas fa-bath"></i>Bathrooms: {{listing.bathrooms}}
+                  Seats: {{listing.seats}}
+                </div>
+              </div>
+              <div class="row py-2 text-secondary">
+                <div class="col-6">
+                  Hand Drive: {{listing.hand_drive}}
+                </div>
+                <div class="col-6">
+                  Wheels Drive: {{listing.wheels_drive}}
+                </div>
+              </div>
+              <div class="row py-2 text-secondary">
+                <div class="col-6">
+                  Milage: {{listing.milage}}
+                </div>
+                <div class="col-6">
+                  Range: {{listing.range}}
                 </div>
               </div>
               <hr />
               <div class="row py-2 text-secondary">
                 <div class="col-12">
-                  <i class="fas fa-user"></i>Realtor: {{listing.realtor}}
+                  <i class="fas fa-clock"></i>Listed Since: {{listing.list_date | timesince }}
                 </div>
               </div>
               <div class="row text-secondary pb-2">
-                <div class="col-6">
-                  <i class="fas fa-clock"></i>{{listing.list_date | timesince }}
+                <div class="col-12">
+                  <i class="fas fa-user"></i>E-Car Broker: {{listing.broker}}
                 </div>
               </div>
               <hr />
@@ -172,6 +192,10 @@
           </div>
         </div>
         {% endfor %}
+        {% else %}
+        <div class="col-md-12">
+          <p>No Listing Sought</p>
+        </div>
         {% endif %}
       </div>
       <p style="font-size: 40px;">Total searched results: {{total}} record(s)</p>

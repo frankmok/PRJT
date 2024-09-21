@@ -1,17 +1,19 @@
 from django.shortcuts import render
 from listings.models import Listing
 from brokers.models import Broker
-from listings.choices import price_choices, brand_choices, model_choices, origin_choices
+from listings.choices import price_choices, brand_model_choices, color_choices, hand_drive_choices, wheels_drive_choices
 
 # Create your views here.
 
 def index(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
     context = {'listings': listings,
-               'price_choices': price_choices,
-               'brand_choices': brand_choices,
-               'model_choices': model_choices,
-               'origin_choices': origin_choices,}
+    'price_choices': price_choices,
+    'brand_model_choices': brand_model_choices,
+    'color_choices': color_choices,
+    'hand_drive_choices': hand_drive_choices,
+    'wheels_drive_choices': wheels_drive_choices,
+    }
     return render(request, 'pages/index.html', context)
 
 def about(request):

@@ -9,7 +9,7 @@
         <div class="container text-center">
           <div class="home-search p-5">
             <div class="overlay p-5">
-              <h1 class="display-4 mb-4">Property Searching Just Got So Easy</h1>
+              <h1 class="display-4 mb-4">E-Cars Searching Just Got So Easy</h1>
               <p class="lead">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Recusandae quas, asperiores eveniet vel nostrum magnam voluptatum
@@ -20,33 +20,28 @@
                   <!-- Form Row 1 -->
                   <div class="form-row">
                     <div class="col-md-4 mb-3">
-                      <label class="sr-only">Keywords</label>
+                      <label class="sr-only" for="keywords">Keywords</label>
                       <input
                         type="text"
                         name="keywords"
                         class="form-control"
-                        placeholder="Keyword (Bathrooms, ClubHouse, etc)"
+                        id="keywords"
+                        placeholder="Keyword (Origin, Doors, Seats, Milage, Range etc)"
                       />
                     </div>
-  
                     <div class="col-md-4 mb-3">
-                      <label class="sr-only">Title</label>
-                      <input
-                        type="text"
-                        name="Title"
-                        class="form-control"
-                        placeholder="Title"
-                      />
+                      <label class="sr-only" for="brand_model">Brand                Model</label>
+                      <select name="brand_model" class="form-control" id="brand_model">
+                        {% for key, value in brand_model_choices.items %}
+                        <option value="{{value}}">{{key}}</option>
+                        {% endfor %}
+                      </select>
                     </div>
-  
                     <div class="col-md-4 mb-3">
-                      <label class="sr-only">District</label>
-                      <select name="District" class="form-control">
-                        <option selected="true" disabled="disabled">
-                          District (All)
-                        </option>
-                        {% for key, value in district_choices.items %}
-                        <option value="{{key}}">{{value}}</option>
+                      <label class="sr-only" for="color">Colour</label>
+                      <select name="color" class="form-control" id="color">
+                        {% for key, value in color_choices.items %}
+                        <option value="{{value}}">{{key}}</option>
                         {% endfor %}
                       </select>
                     </div>
@@ -54,23 +49,26 @@
                   <!-- Form Row 2 -->
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
-                      <label class="sr-only">Bedrooms</label>
-                      <select name="bedrooms" class="form-control">
-                        <option selected="true" disabled="disabled">
-                          Bedrooms (All)
-                        </option>
-                        {% for key, value in bedroom_choices.items %}
-                        <option value="{{key}}">{{value}}</option>
+                      <label class="sr-only" for="hand_drive">Hand Drive</label>
+                      <select name="hand_drive" class="form-control" id="hand_drive">
+                        {% for key, value in hand_drive_choices.items %}
+                        <option value="{{value}}">{{key}}</option>
                         {% endfor %}
                       </select>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <select name="price" class="form-control" id="type">
-                        <option selected="true" disabled="disabled">
-                          Max Price (Any)
-                        </option>
+                      <label class="sr-only" for="wheels_drive">Wheels Drive</label>
+                      <select name="wheels_drive" class="form-control" id="wheels_drive">
+                        {% for key, value in wheels_drive_choices.items %}
+                        <option value="{{value}}">{{key}}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label class="sr-only" for="price">Max Price</label>
+                      <select name="price" class="form-control" id="price">
                         {% for key, value in price_choices.items %}
-                        <option value="{{key}}">{{value}}</option>
+                        <option value="{{value}}">{{key}}</option>
                         {% endfor %}
                       </select>
                     </div>
@@ -112,44 +110,51 @@
               </div>
               <div class="card-body">
                 <div class="listing-heading text-center">
-                  <h4 class="text-primary">{{listing.title}}</h4>
-                  <p>
-                    <i class="fas fa-map-marker text-secondary"></i>
-                    District: {{listing.district}}
-                  </p>
+                  <h4 class="text-primary">{{listing.brand}}</h4>
+                  <h5 class="text-primary">{{listing.model}}</h5>
                 </div>
                 <hr />
                 <div class="row py-2 text-secondary">
                   <div class="col-6">
-                    <i class="fas fa-th-large"></i>
-                    Sq. Feet: {{listing.sqft | intcomma }}
+                    Origin: {{listing.origin}}
                   </div>
                   <div class="col-6">
-                    <i class="fas fa-dumbbell"></i>
-                    Clubhouses: {{listing.clubhouse}}
+                    Color: {{listing.color}}
                   </div>
                 </div>
                 <div class="row py-2 text-secondary">
                   <div class="col-6">
-                    <i class="fas fa-bed"></i>
-                    Bedrooms: {{listing.bedrooms}}
+                    Doors: {{listing.doors}}
                   </div>
                   <div class="col-6">
-                    <i class="fas fa-bath"></i>
-                    Bathrooms: {{listing.bathrooms}}
+                    Seats: {{listing.seats}}
+                  </div>
+                </div>
+                <div class="row py-2 text-secondary">
+                  <div class="col-6">
+                    Hand Drive: {{listing.doors}}
+                  </div>
+                  <div class="col-6">
+                    Wheels Drive: {{listing.seats}}
+                  </div>
+                </div>
+                <div class="row py-2 text-secondary">
+                  <div class="col-6">
+                    Milage: {{listing.milage}}
+                  </div>
+                  <div class="col-6">
+                    Range: {{listing.range}}
                   </div>
                 </div>
                 <hr />
                 <div class="row py-2 text-secondary">
-                  <div class="col-6">
-                    <i class="fas fa-user"></i>
-                    Realtor: {{listing.realtor}}
+                  <div class="col-12">
+                    <i class="fas fa-clock"></i>Listed Since: {{listing.list_date | timesince }}
                   </div>
                 </div>
                 <div class="row text-secondary pb-2">
-                  <div class="col-6">
-                    <i class="fas fa-clock"></i>
-                    {{listing.list_date | timesince }}
+                  <div class="col-12">
+                    <i class="fas fa-user"></i>E-Car Broker: {{listing.broker}}
                   </div>
                 </div>
                 <hr />
@@ -175,7 +180,6 @@
       <div class="container">
         <div class="row text-center">
           <div class="col-md-4">
-            <i class="fas fa-comment fa-4x mr-4"></i>
             <hr />
             <h3>Consulting Services</h3>
             <p>
@@ -185,9 +189,8 @@
             </p>
           </div>
           <div class="col-md-4">
-            <i class="fas fa-home fa-4x mr-4"></i>
             <hr />
-            <h3>Propery Management</h3>
+            <h3>Maintenance Services</h3>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt,
               debitis nam! Repudiandae, provident iste consequatur hic
@@ -195,7 +198,6 @@
             </p>
           </div>
           <div class="col-md-4">
-            <i class="fas fa-suitcase fa-4x mr-4"></i>
             <hr />
             <h3>Renting & Selling</h3>
             <p>
