@@ -62,19 +62,13 @@
               <a href={% url "goals" %}>Goals</a>
             </li>
             <li>
-              <a href={% url "organization" %}>Organization</a>
-            </li>
-            <li>
               <a href={% url "work" %}>Work</a>
             </li>
             <li>
               <a href={% url "listings" %}>Featured Listings</a>
             </li>
             <li>
-              <a href={% url "team" %}>Team</a>
-            </li>
-            <li>
-              <a href={% url "mvb" %}>Most Valued Broker(s)</a>
+              <a href={% url "sitemap" %}>Websitemap</a>
             </li>
           </ul>
       </div>
@@ -82,11 +76,32 @@
           <ul>
             {% if user.is_authenticated %}
             <li>
-              <a href={% url "dashboard" %}>{{user.username}} Dashboard</a>
+              <a href={% url "dashboard" %}>Welcome {{user.username}} (dashboard)</a>
+            </li>
+            <li>
+              <a href="javascript: {document.getElementById('logout').submit()}">
+                <i class="fas fa-sign-out-alt"></i>Logout</a>
+              <form action="{% url 'logout' %}" method="POST" id="logout">
+              {% csrf_token %}
+                <input type="hidden" />
+              </form>
+            </li>
+            {% else %}
+            <li>
+              <a href={% url "register" %}><i class="fas fa-user-plus"></i>Register</a>
+            </li>          
+            <li>
+              <a href={% url "login" %}><i class="fas fa-sign-in-alt"></i>Login</a>
             </li>
             {% endif %}
-            <li
-              <a href={% url "register" %}>Register</a>
+            <li>
+              <a href={% url "organization" %}>Organization</a>
+            </li>
+            <li>
+              <a href={% url "team" %}>Team</a>
+            </li>
+            <li>
+              <a href={% url "mvb" %}>Most Valued Broker(s)</a>
             </li>
             <li>
               <a href={% url "joinus" %}>Join Us</a>
@@ -95,13 +110,7 @@
               <a href={% url "contactus" %}>Contact Us</a>
             </li>
             <li>
-              <a href={% url "sitemap" %}>Websitemap</a>
-            </li>
-            <li>
               <a href={% url "disclaimer" %}>Disclaimer</a>
-            </li>
-            <li>
-              <a href={% url "awarrange" %}>Adverse Weather Arrangements</a>
             </li>
           </ul>
       </div>
@@ -128,10 +137,13 @@
             <li>
               <a href={% url "abcpolicy" %}>Anti-Bribery-Corruption Policy</a>
             </li>
+            <li>
+              <a href={% url "awarrange" %}>Adverse Weather Arrangements</a>
+            </li>
           </ul>
       </div>
     </div>
-    <h1>Welcome You Onto The Site Board</h1>
+    <h1 align="right">Welcome You Onto The Site Board</h1>
   </div>
 </section>
 
