@@ -15,7 +15,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
         <ul class="navbar-nav">
           <li
           {% if '/' == request.path %}
@@ -23,7 +23,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "index" %}>Home</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "index" %}>Home</a>
           </li>
           <li
           {% if 'about' in request.path %}
@@ -31,7 +31,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "about" %}>About</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "about" %}>About</a>
           </li>
           <li
           {% if 'history' in request.path %}
@@ -39,7 +39,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "history" %}>History</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "history" %}>History</a>
           </li>
           <li
           {% if 'vision' in request.path %}
@@ -47,7 +47,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "vision" %}>Vision</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "vision" %}>Vision</a>
           </li>
           <li
           {% if 'goals' in request.path %}
@@ -55,19 +55,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "goals" %}>Goals</a>
-          </li>
-        </ul>
-        </div>
-        <div class="col-md-3">
-        <ul class="navbar-nav">
-          <li
-          {% if 'organization' in request.path %}
-          class="nav-item active mr-3"
-          {% else %}
-          class="nav-item mr-3"
-          {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "organization" %}>Organization</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "goals" %}>Goals</a>
           </li>
           <li
           {% if 'work' in request.path %}
@@ -75,7 +63,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "work" %}>Work</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "work" %}>Work</a>
           </li>
           <li
           {% if 'listings' in request.path %}
@@ -83,27 +71,19 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "listings" %}>Featured Listings</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "listings" %}>Featured Listings</a>
           </li>
           <li
-          {% if 'team' in request.path %}
+          {% if 'sitemap' in request.path %}
           class="nav-item active mr-3"
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "team" %}>Team</a>
-          </li>
-          <li
-          {% if 'mvb' in request.path %}
-          class="nav-item active mr-3"
-          {% else %}
-          class="nav-item mr-3"
-          {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "mvb" %}>Most Valued Broker(s)</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "sitemap" %}>Websitemap</a>
           </li>
         </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
         <ul class="navbar-nav ml-auto">
         <!-- if login then show dashboard and logout link -->
         {% if user.is_authenticated %}
@@ -114,11 +94,11 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "dashboard" %}>Welcome {{user.username}} (dashboard)</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "dashboard" %}>Welcome {{user.username}} (dashboard)</a>
           </li>
           <!-- logout link -->
           <li class="nav-item mr-3">
-            <a href="javascript: {document.getElementById('logout').submit()}" class="nav-link text-primary" style="font-size:10px;">
+            <a href="javascript: {document.getElementById('logout').submit()}" class="nav-link text-primary" style="font-size:12px;">
               <i class="fas fa-sign-out-alt"></i>Logout</a>
             <form action="{% url 'logout' %}" method="POST" id="logout">
             {% csrf_token %}
@@ -132,7 +112,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "register" %}>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "register" %}>
               <i class="fas fa-user-plus"></i>Register</a>
           </li>          
           <li
@@ -141,17 +121,41 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "login" %}>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "login" %}>
               <i class="fas fa-sign-in-alt"></i>Login</a>
           </li>
         {% endif %}
+          <li
+          {% if 'organization' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "organization" %}>Organization</a>
+          </li>
+          <li
+          {% if 'team' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "team" %}>Team</a>
+          </li>
+          <li
+          {% if 'mvb' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "mvb" %}>Most Valued Broker(s)</a>
+          </li>
           <li
           {% if 'joinus' in request.path %}
           class="nav-item active mr-3"
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "joinus" %}>Join Us</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "joinus" %}>Join Us</a>
           </li>
           <li
           {% if 'contactus' in request.path %}
@@ -159,15 +163,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "contactus" %}>Contact Us</a>
-          </li>
-          <li
-          {% if 'sitemap' in request.path %}
-          class="nav-item active mr-3"
-          {% else %}
-          class="nav-item mr-3"
-          {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "sitemap" %}>Websitemap</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "contactus" %}>Contact Us</a>
           </li>
           <li
           {% if 'disclaimer' in request.path %}
@@ -175,19 +171,11 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "disclaimer" %}>Disclaimer</a>
-          </li>
-          <li
-          {% if 'awarrange' in request.path %}
-          class="nav-item active mr-3"
-          {% else %}
-          class="nav-item mr-3"
-          {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "awarrange" %}>Adverse Weather Arrangements</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "disclaimer" %}>Disclaimer</a>
           </li>
         </ul>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
         <ul class="navbar-nav">
           <li
           {% if 'pdpolicy' in request.path %}
@@ -195,7 +183,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "pdpolicy" %}>Privacy Data Policy</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "pdpolicy" %}>Privacy Data Policy</a>
           </li>
           <li
           {% if 'pcpolicy' in request.path %}
@@ -203,7 +191,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "pcpolicy" %}>Pro-Competition Policy</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "pcpolicy" %}>Pro-Competition Policy</a>
           </li>
           <li
           {% if 'ftpolicy' in request.path %}
@@ -211,7 +199,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "ftpolicy" %}>Fair Trade Policy</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "ftpolicy" %}>Fair Trade Policy</a>
           </li>
           <li
           {% if 'esgpolicy' in request.path %}
@@ -219,7 +207,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "esgpolicy" %}>Environment Society Governance Policy</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "esgpolicy" %}>Environment Society Governance Policy</a>
           </li>
           <li
           {% if 'ohspolicy' in request.path %}
@@ -227,7 +215,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "ohspolicy" %}>Occupational Health & Safety Policy</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "ohspolicy" %}>Occupational Health & Safety Policy</a>
           </li>
           <li
           {% if 'amlpolicy' in request.path %}
@@ -235,7 +223,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "amlpolicy" %}>Anti-Money-Laundering Policy</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "amlpolicy" %}>Anti-Money-Laundering Policy</a>
           </li>
           <li
           {% if 'abcpolicy' in request.path %}
@@ -243,7 +231,15 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:10px;" href={% url "abcpolicy" %}>Anti-Bribery-Corruption Policy</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "abcpolicy" %}>Anti-Bribery-Corruption Policy</a>
+          </li>
+          <li
+          {% if 'awarrange' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "awarrange" %}>Adverse Weather Arrangements</a>
           </li>
         </ul>
         </div>
