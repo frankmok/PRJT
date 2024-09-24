@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- add title to the tab -->
+{% block title %}  | Vision {% endblock %}
+{% block content %}
+
+<section id="showcase-inner" class="py-5 text-white">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12">
+        <h1 class="display-5">BC E-Cars' Vision</h1>
+        <h2 class="display-6">Summary</h2>
+        <p class="lead">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste, blanditiis?
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href={% url "index" %}><i class="fas fa-home"></i>Home</a>
+        </li>
+        <li class="breadcrumb-item active">Company Vision</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<section id="vision" class="py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Future Days of The Company</h2>
+        <p class="lead">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste, blanditiis?
+        </p>
+        <img src={% static "img/vision.jpg" %} alt="" />
+        <p class="mt-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
+          accusamus rem quia magnam magni dolorum facilis ullam minima
+          perferendis? Exercitationem at quaerat commodi id libero eveniet
+          harum perferendis laborum molestias quia.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
+          accusamus rem quia magnam magni dolorum facilis ullam minima
+          perferendis? Exercitationem at quaerat commodi id libero eveniet
+          harum perferendis laborum molestias quia.
+        </p>
+        <br />
+        <h2>Development of The Company</h2>
+        <p class="lead">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iste, blanditiis?
+        </p>
+        <img src={% static "img/development.jpg" %} alt="" />
+        <p class="mt-4">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
+          accusamus rem quia magnam magni dolorum facilis ullam minima
+          perferendis? Exercitationem at quaerat commodi id libero eveniet
+          harum perferendis laborum molestias quia.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
+          accusamus rem quia magnam magni dolorum facilis ullam minima
+          perferendis? Exercitationem at quaerat commodi id libero eveniet
+          harum perferendis laborum molestias quia.
+        </p>
+        <br />
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

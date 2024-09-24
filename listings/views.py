@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Listing
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from listings.choices import price_choices, brand_model_choices, color_choices, hand_drive_choices, wheels_drive_choices
+from bcec.company import company_website, company_phone, company_email
 
 # Create your views here.
 def index(request):
@@ -11,12 +12,23 @@ def index(request):
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
     # pass database records into listings context
-    context = {'listings': paged_listings, 'total': len(listings)}
+    context = {
+    'listings': paged_listings,
+    'total': len(listings),
+    'company_website': company_website,
+    'company_phone': company_phone,
+    'company_email': company_email,
+    }
     return render(request, 'listings/listings.html', context)
 
 def listing(request, listing_id):
     listing = get_object_or_404(Listing, pk=listing_id)
-    context = {'listing': listing}
+    context = {
+    'listing': listing,
+    'company_website': company_website,
+    'company_phone': company_phone,
+    'company_email': company_email,
+    }
     return render(request, 'listings/listing.html', context)
 
 def search(request):
@@ -39,18 +51,23 @@ def search(request):
             queryset_list = queryset_list.filter(price__lte=price)
     if 'hand_drive' in request.GET:
         hand_drive = request.GET['hand_drive']
-        queryset_list = queryset_list.filter(hand_drive__iexact=hand_drive)
+        if hand_drive:
+            queryset_list = queryset_list.filter(hand_drive__iexact=hand_drive)
     if 'wheels_drive' in request.GET:
         wheels_drive = request.GET['wheels_drive']
-        queryset_list = queryset_list.filter(wheels_drive__iexact=wheels_drive)
+        if wheels_drive:
+            queryset_list = queryset_list.filter(wheels_drive__iexact=wheels_drive)
     context = {
-        'listings': queryset_list,
-        'price_choices': price_choices,
-        'brand_model_choices': brand_model_choices,
-        'color_choices': color_choices,
-        'hand_drive_choices': hand_drive_choices,
-        'wheels_drive_choices': wheels_drive_choices,
-        'values': request.GET,
-        'total': len(queryset_list),
+    'listings': queryset_list,
+    'price_choices': price_choices,
+    'brand_model_choices': brand_model_choices,
+    'color_choices': color_choices,
+    'hand_drive_choices': hand_drive_choices,
+    'wheels_drive_choices': wheels_drive_choices,
+    'values': request.GET,
+    'total': len(queryset_list),
+    'company_website': company_website,
+    'company_phone': company_phone,
+    'company_email': company_email,
     }
     return render(request, 'listings/search.html', context)

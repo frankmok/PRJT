@@ -1,10 +1,11 @@
 {% load static %}
 <!-- Navbar -->
-<nav class="navbar navbar-expand%-lg navbar-dark bg-primary sticky-top">
+<nav class="navbar navbar-expand%-lg navbar-dark bg-secondary sticky-top">
     <div class="container">
       <a class="navbar-brand" href={% url "index" %}>
         <img src={% static "img/logo.png" %} class="logo" alt="" />
       </a>
+      <h5 align="center" style="color:white;">BC Electric Cars</h5>
       <button
         class="navbar-toggler"
         type="button"
@@ -13,6 +14,8 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="row">
+        <div class="col-md-3">
         <ul class="navbar-nav">
           <li
           {% if '/' == request.path %}
@@ -20,7 +23,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link" href={% url "index" %}>Home</a>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "index" %}>Home</a>
           </li>
           <li
           {% if 'about' in request.path %}
@@ -28,7 +31,51 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link" href={% url "about" %}>About</a>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "about" %}>About</a>
+          </li>
+          <li
+          {% if 'history' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "history" %}>History</a>
+          </li>
+          <li
+          {% if 'vision' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "vision" %}>Vision</a>
+          </li>
+          <li
+          {% if 'goals' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "goals" %}>Goals</a>
+          </li>
+        </ul>
+        </div>
+        <div class="col-md-3">
+        <ul class="navbar-nav">
+          <li
+          {% if 'organization' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "organization" %}>Organization</a>
+          </li>
+          <li
+          {% if 'work' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "work" %}>Work</a>
           </li>
           <li
           {% if 'listings' in request.path %}
@@ -36,9 +83,27 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link" href={% url "listings" %}>Featured Listings</a>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "listings" %}>Featured Listings</a>
+          </li>
+          <li
+          {% if 'team' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "team" %}>Team</a>
+          </li>
+          <li
+          {% if 'mvb' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "mvb" %}>Most Valued Broker(s)</a>
           </li>
         </ul>
+        </div>
+        <div class="col-md-3">
         <ul class="navbar-nav ml-auto">
         <!-- if login then show dashboard and logout link -->
         {% if user.is_authenticated %}
@@ -49,11 +114,11 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link" href={% url "dashboard" %}>Welcome {{user.username}} (dashboard)</a>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "dashboard" %}>Welcome {{user.username}} (dashboard)</a>
           </li>
           <!-- logout link -->
           <li class="nav-item mr-3">
-            <a href="javascript: {document.getElementById('logout').submit()}" class="nav-link">
+            <a href="javascript: {document.getElementById('logout').submit()}" class="nav-link text-primary" style="font-size:10px;">
               <i class="fas fa-sign-out-alt"></i>Logout</a>
             <form action="{% url 'logout' %}" method="POST" id="logout">
             {% csrf_token %}
@@ -67,7 +132,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link" href={% url "register" %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "register" %}>
               <i class="fas fa-user-plus"></i>Register</a>
           </li>          
           <li
@@ -76,11 +141,113 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link" href={% url "login" %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "login" %}>
               <i class="fas fa-sign-in-alt"></i>Login</a>
           </li>
         {% endif %}
+          <li
+          {% if 'joinus' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "joinus" %}>Join Us</a>
+          </li>
+          <li
+          {% if 'contactus' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "contactus" %}>Contact Us</a>
+          </li>
+          <li
+          {% if 'sitemap' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "sitemap" %}>Websitemap</a>
+          </li>
+          <li
+          {% if 'disclaimer' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "disclaimer" %}>Disclaimer</a>
+          </li>
+          <li
+          {% if 'awarrange' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "awarrange" %}>Adverse Weather Arrangements</a>
+          </li>
         </ul>
+        </div>
+        <div class="col-md-3">
+        <ul class="navbar-nav">
+          <li
+          {% if 'pdpolicy' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "pdpolicy" %}>Privacy Data Policy</a>
+          </li>
+          <li
+          {% if 'pcpolicy' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "pcpolicy" %}>Pro-Competition Policy</a>
+          </li>
+          <li
+          {% if 'ftpolicy' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "ftpolicy" %}>Fair Trade Policy</a>
+          </li>
+          <li
+          {% if 'esgpolicy' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "esgpolicy" %}>Environment Society Governance Policy</a>
+          </li>
+          <li
+          {% if 'ohspolicy' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "ohspolicy" %}>Occupational Health & Safety Policy</a>
+          </li>
+          <li
+          {% if 'amlpolicy' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "amlpolicy" %}>Anti-Money-Laundering Policy</a>
+          </li>
+          <li
+          {% if 'abcpolicy' in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:10px;" href={% url "abcpolicy" %}>Anti-Bribery-Corruption Policy</a>
+          </li>
+        </ul>
+        </div>
+        </div>
       </div>
     </div>
 </nav>

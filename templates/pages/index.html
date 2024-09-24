@@ -19,7 +19,7 @@
                 <form action="{% url 'search' %}">
                   <!-- Form Row 1 -->
                   <div class="form-row">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                       <label class="sr-only" for="keywords">Keywords</label>
                       <input
                         type="text"
@@ -29,7 +29,7 @@
                         placeholder="Keyword (Origin, Doors, Seats, Milage, Range etc)"
                       />
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                       <label class="sr-only" for="brand_model">Brand                Model</label>
                       <select name="brand_model" class="form-control" id="brand_model">
                         {% for key, value in brand_model_choices.items %}
@@ -37,7 +37,7 @@
                         {% endfor %}
                       </select>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-3 mb-3">
                       <label class="sr-only" for="color">Colour</label>
                       <select name="color" class="form-control" id="color">
                         {% for key, value in color_choices.items %}
@@ -48,7 +48,7 @@
                   </div>
                   <!-- Form Row 2 -->
                   <div class="form-row">
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-3 mb-3">
                       <label class="sr-only" for="hand_drive">Hand Drive</label>
                       <select name="hand_drive" class="form-control" id="hand_drive">
                         {% for key, value in hand_drive_choices.items %}
@@ -56,7 +56,7 @@
                         {% endfor %}
                       </select>
                     </div>
-                    <div class="col-md-6 mb-3">
+                    <div class="col-md-3 mb-3">
                       <label class="sr-only" for="wheels_drive">Wheels Drive</label>
                       <select name="wheels_drive" class="form-control" id="wheels_drive">
                         {% for key, value in wheels_drive_choices.items %}
@@ -73,7 +73,7 @@
                       </select>
                     </div>
                   </div>
-                  <button class="btn btn-secondary btn-block mt-4" type="submit">
+                  <button class="btn btn-info btn-block mt-4" type="submit">
                     Submit form
                   </button>
                 </form>
@@ -89,7 +89,6 @@
       <div class="container">
         <h3 class="text-center mb-3">Latest Listings</h3>
         <div class="row">
-
           <!-- Listing 1 to the 3 -->
           {% if listings %}
           <!-- for loop to gen items -->
@@ -158,7 +157,7 @@
                   </div>
                 </div>
                 <hr />
-                <a href={% url "listing" listing.id %} class="btn btn-primary btn-block">
+                <a href={% url "listing" listing.id %} class="btn btn-info btn-block">
                   More Info
                 </a>
               </div>

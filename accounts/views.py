@@ -2,10 +2,16 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages, auth
 from contacts.models import Contact
+from bcec.company import company_website, company_phone, company_email
 
 # Create your views here.
 
 def register(request):
+    context = {
+    'company_website': company_website,
+    'company_phone': company_phone,
+    'company_email': company_email,
+    }
     if request.method == "POST":
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -32,9 +38,14 @@ def register(request):
             messages.error(request, 'Passwords do not match')
             return redirect('register')
     else:
-        return render(request, 'accounts/register.html')
+        return render(request, 'accounts/register.html', context)
 
 def login(request):
+    context = {
+    'company_website': company_website,
+    'company_phone': company_phone,
+    'company_email': company_email,
+    }
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -47,7 +58,7 @@ def login(request):
             messages.error(request, 'Invalid credentials')
             return redirect('login')
     else:
-        return render(request, 'accounts/login.html')
+        return render(request, 'accounts/login.html', context)
 
 def logout(request):
     if request.method == "POST":
@@ -57,5 +68,10 @@ def logout(request):
 
 def dashboard(request):
     user_contacts = Contact.objects.order_by('-contact_date').filter(user_id=request.user.id)
-    context = {'contacts': user_contacts}
+    context = {
+    'contacts': user_contacts,
+    'company_website': company_website,
+    'company_phone': company_phone,
+    'company_email': company_email,
+    }
     return render(request, 'accounts/dashboard.html', context)

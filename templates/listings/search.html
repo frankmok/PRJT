@@ -11,7 +11,7 @@
           <form action="{% url 'search' %}">
             <!-- Form Row 1 -->
             <div class="form-row">
-              <div class="col-md-4 mb-3">
+              <div class="col-md-3 mb-3">
                 <label class="sr-only">Keywords</label>
                 <input
                   type="text"
@@ -21,7 +21,7 @@
                   placeholder="Keyword (Origin, Doors, Seats, Milage, Range etc)"
                   />
               </div>
-              <div class="col-md-4 mb-3">
+              <div class="col-md-6 mb-3">
                 <label class="sr-only">Brand                Model</label>
                 <select name="brand_model" class="form-control">
                   {% for key, value in brand_model_choices.items %}
@@ -34,7 +34,7 @@
                   {% endfor %}
                 </select>
               </div>
-              <div class="col-md-4 mb-3">
+              <div class="col-md-3 mb-3">
                 <label class="sr-only">Colour</label>
                 <select name="color" class="form-control">
                   {% for key, value in color_choices.items %}
@@ -50,7 +50,7 @@
             </div>
             <!-- Form Row 2 -->
             <div class="form-row">
-              <div class="col-md-6 mb-3">
+              <div class="col-md-3 mb-3">
                 <label class="sr-only">Hand Drive</label>
                 <select name="hand_drive" class="form-control">
                   {% for key, value in hand_drive_choices.items %}
@@ -63,7 +63,7 @@
                   {% endfor %}
                 </select>
               </div>
-              <div class="col-md-6 mb-3">
+              <div class="col-md-3 mb-3">
                 <label class="sr-only">Wheels Drive</label>
                 <select name="wheels_drive" class="form-control">
                   {% for key, value in wheels_drive_choices.items %}
@@ -90,7 +90,7 @@
                 </select>
               </div>
             </div>
-            <button class="btn btn-secondary btn-block mt-4" type="submit">
+            <button class="btn btn-info btn-block mt-4" type="submit">
               Submit form
             </button>
           </form>
@@ -185,7 +185,7 @@
                 </div>
               </div>
               <hr />
-              <a href={% url "listing" listing.id %} class="btn btn-primary btn-block">
+              <a href={% url "listing" listing.id %} class="btn btn-info btn-block">
                 More Info
               </a>
             </div>

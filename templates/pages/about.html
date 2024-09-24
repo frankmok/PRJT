@@ -8,10 +8,10 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
-        <h1 class="display-4">About BC Real Estate</h1>
+        <h1 class="display-5">About BC E-Cars</h1>
+        <h2 class="display-6">Summary</h2>
         <p class="lead">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
-          pariatur!
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, eum?
         </p>
       </div>
     </div>
@@ -26,7 +26,7 @@
         <li class="breadcrumb-item">
           <a href={% url "index" %}><i class="fas fa-home"></i>Home</a>
         </li>
-        <li class="breadcrumb-item active">About</li>
+        <li class="breadcrumb-item active">About Company</li>
       </ol>
     </nav>
   </div>
@@ -35,11 +35,10 @@
 <section id="about" class="py-4">
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
-        <h2>We Search For The Perfect Drive</h2>
+      <div class="col-md-12">
+        <h2>Our Company Serves of Seeking Perfect Drive(s) for Families</h2>
         <p class="lead">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
-          pariatur!
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, eum?
         </p>
         <img src={% static "img/about.jpg" %} alt="" />
         <p class="mt-4">
@@ -48,68 +47,28 @@
           accusamus rem quia magnam magni dolorum facilis ullam minima
           perferendis? Exercitationem at quaerat commodi id libero eveniet
           harum perferendis laborum molestias quia.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
+          accusamus rem quia magnam magni dolorum facilis ullam minima
+          perferendis? Exercitationem at quaerat commodi id libero eveniet
+          harum perferendis laborum molestias quia.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
+          accusamus rem quia magnam magni dolorum facilis ullam minima
+          perferendis? Exercitationem at quaerat commodi id libero eveniet
+          harum perferendis laborum molestias quia.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
+          accusamus rem quia magnam magni dolorum facilis ullam minima
+          perferendis? Exercitationem at quaerat commodi id libero eveniet
+          harum perferendis laborum molestias quia.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Perspiciatis esse officia repudiandae ad saepe ex, amet neque quod
+          accusamus rem quia magnam magni dolorum facilis ullam minima
+          perferendis? Exercitationem at quaerat commodi id libero eveniet
+          harum perferendis laborum molestias quia.
         </p>
       </div>
-      <div class="col-md-4">
-        <div class="card">
-          {% for realtor in mvp_realtors %}
-          <img
-            class="card-img-top"
-            src={{realtor.photo.url}}
-            alt="Seller of the month"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Seller Of The Month</h5>
-            <h6 class="text-secondary">{{realtor.name}}</h6>
-            <p class="card-text">
-              {{realtor.description}}
-            </p>
-          </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Work -->
-<section id="work" class="bg-dark text-white text-center">
-  <h2 class="display-4">We Work For You</h2>
-  <h4>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit
-    aperiam, unde aliquid at similique!
-  </h4>
-  <hr />
-  <a href={% url "listings" %} class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
-</section>
-
-<!-- Team -->
-<section id="team" class="py-5">
-  <div class="container">
-    <h2 class="text-center">Our Team</h2>
-    <div class="row text-center">
-      {% if realtors %}
-      {% for realtor in realtors %}
-      <div class="col-md-4">
-        <img
-          src={{realtor.photo.url}}
-          alt=""
-          class="rounded-circle mb-3"
-        />
-        <h4>{{realtor.name}}</h4>
-        <p class="text-success">
-          <i class="fas fa-award text-success mb-3"></i>Realtor
-        </p>
-        <hr />
-        <p><i class="fas fa-phone"></i>{{realtor.phone}}</p>
-        <p><i class="fas fa-envelope-open"></i>{{realtor.email}}</p>
-      </div>
-      {% endfor %}
-      {% else %} 
-      <div class="col-md-12">
-        <p>No Realtor Available</p>
-      </div>
-      {% endif %}
     </div>
   </div>
 </section>

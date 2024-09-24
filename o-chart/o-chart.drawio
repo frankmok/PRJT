@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.16">
+  <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
+    <mxGraphModel dx="810" dy="481" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dNxyNK7c78bLwvsdeMH5-11" value="BC E-Cars&#39; Orgchart" style="swimlane;html=1;startSize=20;horizontal=1;containerType=tree;glass=0;" parent="1" vertex="1">
+          <mxGeometry x="40" y="50" width="710" height="610" as="geometry" />
+        </mxCell>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-9" value="" style="endArrow=blockThin;endFill=1;fontSize=11;edgeStyle=elbowEdgeStyle;elbow=vertical;rounded=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="349.5" y="150" as="sourcePoint" />
+            <mxPoint x="349.5" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-10" value="Directorship Broad&lt;div&gt;President&lt;/div&gt;&lt;div&gt;Charles Qi&lt;/div&gt;&lt;div&gt;charlesqi@bcec.com&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
+          <mxGeometry x="260" y="80" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-12" value="Management Broad&lt;div&gt;CEO&lt;/div&gt;&lt;div&gt;William Ci&lt;/div&gt;&lt;div&gt;williamci@bcec.com&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
+          <mxGeometry x="260" y="210" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-15" value="Consultants Broad&lt;div&gt;Chairhead&lt;/div&gt;&lt;div&gt;RichardLi&lt;/div&gt;&lt;div&gt;richardli@bcec.com&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
+          <mxGeometry x="530" y="80" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-17" value="Advisory Broad&lt;div&gt;Coordinator&lt;/div&gt;&lt;div&gt;Patrick Ha&lt;/div&gt;&lt;div&gt;patrickha@bcec.com&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
+          <mxGeometry x="530" y="210" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-18" value="" style="endArrow=blockThin;endFill=1;fontSize=11;edgeStyle=elbowEdgeStyle;elbow=vertical;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-11" source="epjy5rhah0wnjwT1xrT9-15" target="epjy5rhah0wnjwT1xrT9-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="359.5" y="160" as="sourcePoint" />
+            <mxPoint x="359.5" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-19" value="" style="endArrow=blockThin;endFill=1;fontSize=11;edgeStyle=elbowEdgeStyle;elbow=vertical;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-11">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="530" y="240" as="sourcePoint" />
+            <mxPoint x="440" y="240" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="480" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-20" value="Executing Team&lt;div&gt;Leader&lt;/div&gt;&lt;div&gt;Edward Lo&lt;/div&gt;&lt;div&gt;edwardlo@bcec.com&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="dNxyNK7c78bLwvsdeMH5-11">
+          <mxGeometry x="260" y="350" width="180" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-21" value="" style="endArrow=blockThin;endFill=1;fontSize=11;edgeStyle=elbowEdgeStyle;elbow=vertical;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="dNxyNK7c78bLwvsdeMH5-11" target="epjy5rhah0wnjwT1xrT9-20">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="349.5" y="280" as="sourcePoint" />
+            <mxPoint x="349.5" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-2" value="" style="endArrow=blockThin;endFill=1;fontSize=11;edgeStyle=elbowEdgeStyle;elbow=vertical;rounded=0;" edge="1" parent="1" target="epjy5rhah0wnjwT1xrT9-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="470" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Jenny Ma&lt;div&gt;Senior Broker&lt;/div&gt;&lt;div&gt;jennyma@bcec.com&lt;/div&gt;" name="Edward Morrison" position="Brand Manager" location="Office 2" email="me@example.com" placeholders="1" link="https://www.draw.io" id="epjy5rhah0wnjwT1xrT9-3">
+          <mxCell style="label;image=https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-128.png;whiteSpace=wrap;html=1;rounded=0;glass=0;treeFolding=1;treeMoving=1;" vertex="1" parent="1">
+            <mxGeometry x="80" y="530" width="180" height="80" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-4" value="" style="endArrow=blockThin;endFill=1;fontSize=11;edgeStyle=elbowEdgeStyle;elbow=vertical;rounded=0;" edge="1" parent="1" target="epjy5rhah0wnjwT1xrT9-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="470" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Kyle Fa&lt;div&gt;Fellow Broker&lt;/div&gt;&lt;div&gt;kylefa@bcec.com&lt;/div&gt;" name="Evan Valet" position="HR Director" location="Office 4" email="me@example.com" placeholders="1" link="https://www.draw.io" id="epjy5rhah0wnjwT1xrT9-5">
+          <mxCell style="label;image=https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-9-2-128.png;whiteSpace=wrap;html=1;rounded=0;glass=0;treeFolding=1;treeMoving=1;" vertex="1" parent="1">
+            <mxGeometry x="300" y="530" width="180" height="80" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="epjy5rhah0wnjwT1xrT9-6" value="" style="endArrow=blockThin;endFill=1;fontSize=11;edgeStyle=elbowEdgeStyle;elbow=vertical;rounded=0;" edge="1" parent="1" target="epjy5rhah0wnjwT1xrT9-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="390" y="470" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="Mark Ka&lt;div&gt;General Broker&lt;/div&gt;&lt;div&gt;markka@bcec.com&lt;/div&gt;" name="Alison Donovan" position="System Admin" location="Office 3" email="me@example.com" placeholders="1" link="https://www.draw.io" id="epjy5rhah0wnjwT1xrT9-7">
+          <mxCell style="label;image=https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-2-128.png;whiteSpace=wrap;html=1;rounded=0;glass=0;" vertex="1" parent="1">
+            <mxGeometry x="530" y="530" width="180" height="80" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
