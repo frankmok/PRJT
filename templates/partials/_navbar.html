@@ -94,7 +94,7 @@
           {% else %}
           class="nav-item mr-3"
           {% endif %}>
-            <a class="nav-link text-primary" style="font-size:12px;" href={% url "dashboard" %}>Welcome {{user.username}} (dashboard)</a>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "dashboard" %}><i class="fas fa-user"></i>Welcome {{user.username}} (dashboard)</a>
           </li>
           <!-- logout link -->
           <li class="nav-item mr-3">

@@ -48,17 +48,17 @@
               alt=""
             />
             <div class="card-img-overlay">
-              <h2>
+              <h4>
                 <span class="badge badge-secondary text-white">HK$ {{listing.price | intcomma }}</span>
-              </h2>
+              </h4>
             </div>
             <div class="card-body">
               <div class="listing-heading text-center">
                 <h4 class="text-primary">{{listing.brand}}</h4>
-                <h5 class="text-secondary">{{listing.model}}</h5>
+                <h5 class="text-primary">{{listing.model}}</h5>
               </div>
               <hr />
-              <div class="row py-2 text-secondary">
+              <div class="row py-2 text-primary">
                 <div class="col-6">
                   Origin: {{listing.origin}}
                 </div>
@@ -66,7 +66,7 @@
                   Color: {{listing.color}}
                 </div>
               </div>
-              <div class="row py-2 text-secondary">
+              <div class="row py-2 text-primary">
                 <div class="col-6">
                   Doors: {{listing.doors}}
                 </div>
@@ -74,7 +74,7 @@
                   Seats: {{listing.seats}}
                 </div>
               </div>
-              <div class="row py-2 text-secondary">
+              <div class="row py-2 text-primary">
                 <div class="col-6">
                   Hand Drive: {{listing.hand_drive}}
                 </div>
@@ -82,7 +82,7 @@
                   Wheels Drive: {{listing.wheels_drive}}
                 </div>
               </div>
-              <div class="row py-2 text-secondary">
+              <div class="row py-2 text-primary">
                 <div class="col-6">
                   Milage: {{listing.milage}}
                 </div>
@@ -91,20 +91,26 @@
                 </div>
               </div>
               <hr />
-              <div class="row py-2 text-secondary">
-                <div class="col-12">
-                  <i class="fas fa-clock"></i>Listed Since: {{listing.list_date | timesince }}
-                </div>
-              </div>
-              <div class="row text-secondary pb-2">
-                <div class="col-12">
+              <div class="row text-primary pb-2">
+                <div class="col-12" align="center">
                   <i class="fas fa-user"></i>E-Car Broker: {{listing.broker}}
+                </div>
+                <div class="col-12" align="center">
+                  <i class="fas fa-phone"></i>{{listing.broker.phone}}
+                </div>
+                <div class="col-12" align="center">
+                  <i class="fas fa-envelope-open"></i>{{listing.broker.email}}
                 </div>
               </div>
               <hr />
               <a href={% url "listing" listing.id %} class="btn btn-info btn-block">
                 More Info
               </a>
+              <div class="row py-2 text-secondary">
+                <div class="col-12" align="right">
+                  <i class="fas fa-clock"></i>Listed Since: {{listing.list_date | timesince }}
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -65,9 +65,9 @@
                       </select>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <label class="sr-only" for="price">Max Price</label>
-                      <select name="price" class="form-control" id="price">
-                        {% for key, value in price_choices.items %}
+                      <label class="sr-only" for="budget">Budget</label>
+                      <select name="budget" class="form-control" id="budget">
+                        {% for key, value in budget_choices.items %}
                         <option value="{{value}}">{{key}}</option>
                         {% endfor %}
                       </select>
@@ -102,7 +102,7 @@
               />
               <div class="card-img-overlay">
                 <h2>
-                  <span class="badge badge-secondary text-white">
+                  <span class="badge badge-info text-white">
                     HK$ {{listing.price | intcomma }}
                   </span>
                 </h2>
@@ -113,7 +113,7 @@
                   <h5 class="text-primary">{{listing.model}}</h5>
                 </div>
                 <hr />
-                <div class="row py-2 text-secondary">
+                <div class="row py-2 text-primary">
                   <div class="col-6">
                     Origin: {{listing.origin}}
                   </div>
@@ -121,7 +121,7 @@
                     Color: {{listing.color}}
                   </div>
                 </div>
-                <div class="row py-2 text-secondary">
+                <div class="row py-2 text-primary">
                   <div class="col-6">
                     Doors: {{listing.doors}}
                   </div>
@@ -129,7 +129,7 @@
                     Seats: {{listing.seats}}
                   </div>
                 </div>
-                <div class="row py-2 text-secondary">
+                <div class="row py-2 text-primary">
                   <div class="col-6">
                     Hand Drive: {{listing.doors}}
                   </div>
@@ -137,7 +137,7 @@
                     Wheels Drive: {{listing.seats}}
                   </div>
                 </div>
-                <div class="row py-2 text-secondary">
+                <div class="row py-2 text-primary">
                   <div class="col-6">
                     Milage: {{listing.milage}}
                   </div>
@@ -146,20 +146,26 @@
                   </div>
                 </div>
                 <hr />
-                <div class="row py-2 text-secondary">
-                  <div class="col-12">
-                    <i class="fas fa-clock"></i>Listed Since: {{listing.list_date | timesince }}
-                  </div>
-                </div>
-                <div class="row text-secondary pb-2">
-                  <div class="col-12">
+                <div class="row text-primary pb-2">
+                  <div class="col-12" align="center">
                     <i class="fas fa-user"></i>E-Car Broker: {{listing.broker}}
+                  </div>
+                  <div class="col-12" align="center">
+                    <i class="fas fa-phone"></i>{{listing.broker.phone}}
+                  </div>
+                  <div class="col-12" align="center">
+                    <i class="fas fa-envelope-open"></i>{{listing.broker.email}}
                   </div>
                 </div>
                 <hr />
                 <a href={% url "listing" listing.id %} class="btn btn-info btn-block">
                   More Info
                 </a>
+                <div class="row py-2 text-secondary">
+                  <div class="col-12" align="right">
+                    <i class="fas fa-clock"></i>Listed Since: {{listing.list_date | timesince }}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

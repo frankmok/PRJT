@@ -12,18 +12,19 @@
             <!-- Form Row 1 -->
             <div class="form-row">
               <div class="col-md-3 mb-3">
-                <label class="sr-only">Keywords</label>
+                <label class="sr-only" for="keywords">Keywords</label>
                 <input
                   type="text"
                   name="keywords"
                   class="form-control"
                   value="{{values.keywords}}"
+                  id="keywords"                  
                   placeholder="Keyword (Origin, Doors, Seats, Milage, Range etc)"
                   />
               </div>
               <div class="col-md-6 mb-3">
-                <label class="sr-only">Brand                Model</label>
-                <select name="brand_model" class="form-control">
+                <label class="sr-only" for="brand_model">Brand                Model</label>
+                <select name="brand_model" class="form-control" id="brand_model">
                   {% for key, value in brand_model_choices.items %}
                   <option value="{{value}}"
                   {% if value == values.brand_model %}
@@ -35,8 +36,8 @@
                 </select>
               </div>
               <div class="col-md-3 mb-3">
-                <label class="sr-only">Colour</label>
-                <select name="color" class="form-control">
+                <label class="sr-only" for="color">Colour</label>
+                <select name="color" class="form-control" id="color">
                   {% for key, value in color_choices.items %}
                   <option value="{{value}}"
                   {% if value == values.color %}
@@ -51,8 +52,8 @@
             <!-- Form Row 2 -->
             <div class="form-row">
               <div class="col-md-3 mb-3">
-                <label class="sr-only">Hand Drive</label>
-                <select name="hand_drive" class="form-control">
+                <label class="sr-only" for="hand_drive">Hand Drive</label>
+                <select name="hand_drive" class="form-control" id="hand_drive">
                   {% for key, value in hand_drive_choices.items %}
                   <option value="{{value}}"
                   {% if value == values.hand_drive %}
@@ -64,8 +65,8 @@
                 </select>
               </div>
               <div class="col-md-3 mb-3">
-                <label class="sr-only">Wheels Drive</label>
-                <select name="wheels_drive" class="form-control">
+                <label class="sr-only" for="wheels_drive">Wheels Drive</label>
+                <select name="wheels_drive" class="form-control" id="wheels_drive">
                   {% for key, value in wheels_drive_choices.items %}
                   <option value="{{value}}"
                   {% if value == values.wheels_drive %}
@@ -77,14 +78,14 @@
                 </select>
               </div>
               <div class="col-md-6 mb-3">
-                <label class="sr-only">Max. Price</label>
-                <select name="price" class="form-control">
-                  {% for key, value in price_choices.items %}
+                <label class="sr-only" for="budget">Budget</label>
+                <select name="budget" class="form-control" id="budget">
+                  {% for key, value in budget_choices.items %}
                   <option value="{{value}}"
-                  {% if value == values.price %}
+                  {% if value == values.budget %}
                     selected
                   {% endif %}>
-                    {{Key}}
+                    {{key}}
                   </option>
                   {% endfor %}
                 </select>
@@ -138,10 +139,10 @@
             <div class="card-body">
               <div class="listing-heading text-center">
                 <h4 class="text-primary">{{listing.brand}}</h4>
-                <h5 class="text-secondary">{{listing.model}}</h5>
+                <h5 class="text-primary">{{listing.model}}</h5>
               </div>
               <hr />
-              <div class="row py-2 text-secondary">
+              <div class="row py-2 text-primary">
                 <div class="col-6">
                   Origin: {{listing.origin}}
                 </div>
@@ -149,7 +150,7 @@
                   Color: {{listing.color}}
                 </div>
               </div>
-              <div class="row py-2 text-secondary">
+              <div class="row py-2 text-primary">
                 <div class="col-6">
                   Doors: {{listing.doors}}
                 </div>
@@ -157,7 +158,7 @@
                   Seats: {{listing.seats}}
                 </div>
               </div>
-              <div class="row py-2 text-secondary">
+              <div class="row py-2 text-primary">
                 <div class="col-6">
                   Hand Drive: {{listing.hand_drive}}
                 </div>
@@ -165,7 +166,7 @@
                   Wheels Drive: {{listing.wheels_drive}}
                 </div>
               </div>
-              <div class="row py-2 text-secondary">
+              <div class="row py-2 text-primary">
                 <div class="col-6">
                   Milage: {{listing.milage}}
                 </div>
@@ -174,20 +175,26 @@
                 </div>
               </div>
               <hr />
-              <div class="row py-2 text-secondary">
-                <div class="col-12">
-                  <i class="fas fa-clock"></i>Listed Since: {{listing.list_date | timesince }}
-                </div>
-              </div>
-              <div class="row text-secondary pb-2">
-                <div class="col-12">
+              <div class="row text-primary pb-2">
+                <div class="col-12" align="center">
                   <i class="fas fa-user"></i>E-Car Broker: {{listing.broker}}
+                </div>
+                <div class="col-12" align="center">
+                  <i class="fas fa-phone"></i>{{listing.broker.phone}}
+                </div>
+                <div class="col-12" align="center">
+                  <i class="fas fa-envelope-open"></i>{{listing.broker.email}}
                 </div>
               </div>
               <hr />
               <a href={% url "listing" listing.id %} class="btn btn-info btn-block">
                 More Info
               </a>
+              <div class="row py-2 text-secondary">
+                <div class="col-12" align="right">
+                  <i class="fas fa-clock"></i>Listed Since: {{listing.list_date | timesince }}
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Listing
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from listings.choices import price_choices, brand_model_choices, color_choices, hand_drive_choices, wheels_drive_choices
+from listings.choices import budget_choices, brand_model_choices, color_choices, hand_drive_choices, wheels_drive_choices
 from bcec.company import company_website, company_phone, company_email
 
 # Create your views here.
@@ -40,15 +40,16 @@ def search(request):
     if 'brand_model' in request.GET:
         brand_model = request.GET['brand_model']
         if brand_model:
-            queryset_list = queryset_list.filter(brand__iexact=brand_model[:20].strip()).filter(model__iexact=brand_model[21:].strip())
+            i = brand_model.index('~')
+            queryset_list = queryset_list.filter(brand__iexact=brand_model[:i]).filter(model__iexact=brand_model[i+1:])
     if 'color' in request.GET:
         color = request.GET['color']
         if color:
             queryset_list = queryset_list.filter(color__iexact=color)
-    if 'price' in request.GET:
-        price = request.GET['price']
-        if price:
-            queryset_list = queryset_list.filter(price__lte=price)
+    if 'budget' in request.GET:
+        budget = request.GET['budget']
+        if budget:
+            queryset_list = queryset_list.filter(price__lte=budget)
     if 'hand_drive' in request.GET:
         hand_drive = request.GET['hand_drive']
         if hand_drive:
@@ -59,7 +60,7 @@ def search(request):
             queryset_list = queryset_list.filter(wheels_drive__iexact=wheels_drive)
     context = {
     'listings': queryset_list,
-    'price_choices': price_choices,
+    'budget_choices': budget_choices,
     'brand_model_choices': brand_model_choices,
     'color_choices': color_choices,
     'hand_drive_choices': hand_drive_choices,

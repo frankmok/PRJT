@@ -9,7 +9,7 @@
       <div class="row text-center">
         <div class="col-md-12">
           <h1 class="display-4">{{listing.brand}}</h1>
-          <h2 class="display-4">{{listing.model}}</h2>
+          <h2 class="display-6">{{listing.model}}</h2>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
           <li class="breadcrumb-item">
             <a href={% url "listings" %}>Listings</a>
           </li>
-          <li class="breadcrumb-item active">{{listing.model}}</li>
+          <li class="breadcrumb-item active text-dark">{{listing.brand}} {{listing.model}}</li>
         </ol>
       </nav>
     </div>
@@ -136,23 +136,23 @@
           <div class="row mb-5 fields">
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item text-secondary">
+                <li class="list-group-item text-primary">
                   <i class="fas fa-money-bill-alt"></i>Asking Price: 
                   <span class="float-right">HK$ {{listing.price | intcomma }}</span>
                 </li>
-                <li class="list-group-item text-secondary">
+                <li class="list-group-item text-primary">
                   Origin: 
                   <span class="float-right">{{listing.origin}}</span>
                 </li>
-                <li class="list-group-item text-secondary">
+                <li class="list-group-item text-primary">
                   Doors: 
                   <span class="float-right">{{listing.doors}}</span>
                 </li>
-                <li class="list-group-item text-secondary">
+                <li class="list-group-item text-primary">
                   Hand Drive:
                   <span class="float-right">{{listing.hand_drive}}</span>
                 </li>
-                <li class="list-group-item text-secondary">
+                <li class="list-group-item text-primary">
                   Milage:
                   <span class="float-right">{{listing.milage}}</span>
                 </li>
@@ -160,39 +160,39 @@
             </div>
             <div class="col-md-6">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item text-secondary">
-                  Brand: 
-                  <span class="float-right">{{listing.brand}}</span>
+                <li class="list-group-item text-primary">
+                  Brand & Model: 
+                  <span class="float-right">{{listing.brand}} {{listing.model}}</span>
                 </li>
-                <li class="list-group-item text-secondary">
+                <li class="list-group-item text-primary">
                   Color: 
                   <span class="float-right">{{listing.color}}</span>
                 </li>
-                <li class="list-group-item text-secondary">
+                <li class="list-group-item text-primary">
                   Seats: 
                   <span class="float-right">{{listing.seats}}</span>
                 </li>
-                <li class="list-group-item text-secondary">
+                <li class="list-group-item text-primary">
                   Wheels Drive: 
                   <span class="float-right">{{listing.wheels_drive}}</span>
                 </li>
-                <li class="list-group-item text-secondary">
+                <li class="list-group-item text-primary">
                   Range: 
                   <span class="float-right">{{listing.range}}</span>
                 </li>
               </ul>
             </div>
           </div>
-          <!-- Field -->
+          <!-- Description -->
           <div class="row mb-5">
             <div class="col-md-12">
-              <h6 class="display-4">Listed Since: {{listing.list_date}}</h6>
+              <h4 class="display-4 text-info">{{listing.description}}</h4>
             </div>
           </div>
-              <!-- Description -->
+          <!-- Field -->
           <div class="row mb-5">
-            <div class="col-md-12">
-              {{listing.description}}
+            <div class="col-md-12" align="right">
+              <h6 class="display-6 text-secondary">Listed Since: {{listing.list_date}}</h6>
             </div>
           </div>
         </div>
@@ -203,9 +203,11 @@
               src={{listing.broker.photo.url}}
               alt=""
             />
-            <div class="card-body">
+            <div class="card-body" align="center">
               <h5 class="card-title">E-Car Broker</h5>
-              <h6 class="text-secondary">{{listing.broker}}</h6>
+              <h6 class="text-primary"><i class="fas fa-user"></i>{{listing.broker}}</h6>
+              <h6 class="text-primary"><i class="fas fa-phone"></i>{{listing.broker.phone}}</h6>
+              <h6 class="text-primary"><i class="fas fa-envelope-open"></i>{{listing.broker.email}}</h6>
             </div>
           </div>
           <button
