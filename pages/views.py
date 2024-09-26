@@ -7,9 +7,11 @@ from bcec.company import company_website, company_phone, company_email
 # Create your views here.
 
 def index(request):
-    listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
+    default_newly_listing_no = 3
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:default_newly_listing_no]
     context = {
     'listings': listings,
+    'default_newly_listing_no': default_newly_listing_no,
     'budget_choices': budget_choices,
     'brand_model_choices': brand_model_choices,
     'color_choices': color_choices,

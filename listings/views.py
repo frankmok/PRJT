@@ -47,7 +47,7 @@ def search(request):
         if color:
             queryset_list = queryset_list.filter(color__iexact=color)
     if 'budget' in request.GET:
-        budget = request.GET['budget']
+        budget = int(request.GET['budget'])
         if budget:
             queryset_list = queryset_list.filter(price__lte=budget)
     if 'hand_drive' in request.GET:

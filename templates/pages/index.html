@@ -88,10 +88,10 @@
 <section id="listings" class="py-5">
       <div class="container">
         <h3 class="text-center mb-3">Latest Listings</h3>
-        <div class="row">
-          <!-- Listing 1 to the 3 -->
+          <!-- Listing 1 to the d -->
           {% if listings %}
           <!-- for loop to gen items -->
+          <div class="row">
           {% for listing in listings %}
           <div class="col-md-6 col-lg-4 mb-4">
             <div class="card listing-preview">
@@ -101,11 +101,11 @@
                 alt=""
               />
               <div class="card-img-overlay">
-                <h2>
+                <h5>
                   <span class="badge badge-info text-white">
                     HK$ {{listing.price | intcomma }}
                   </span>
-                </h2>
+                </h5>
               </div>
               <div class="card-body">
                 <div class="listing-heading text-center">
@@ -171,13 +171,19 @@
           </div>
           {% endfor %}
           <!-- end of loop block -->
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <p>{{default_newly_listing_no}} Latest E-Cars as shown</p>
+            </div>
+          </div>
           {% else %}
-          <div class="col-md-12">
-            <p>No Listing Available</p>
+          <div class="row">
+            <div class="col-md-12">
+              <p>No Listing Available</p>
+            </div>
           </div>
           {% endif %}
-
-        </div>
       </div>
 </section>
 
