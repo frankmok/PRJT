@@ -8,7 +8,8 @@ from bcec.company import company_website, company_phone, company_email
 def index(request):
     # get all data from listing database
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)
-    paginator = Paginator(listings, 3)
+    pagination = 3
+    paginator = Paginator(listings, pagination)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
     # pass database records into listings context

@@ -15,7 +15,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" align="left">
         <ul class="navbar-nav">
           <li
           {% if '/' == request.path %}
@@ -83,7 +83,7 @@
           </li>
         </ul>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" align="center">
         <ul class="navbar-nav ml-auto">
         <!-- if login then show dashboard and logout link -->
         {% if user.is_authenticated %}
@@ -107,15 +107,6 @@
           </li>
         {% else %}
           <li
-          {% if "register" in request.path %}
-          class="nav-item active mr-3"
-          {% else %}
-          class="nav-item mr-3"
-          {% endif %}>
-            <a class="nav-link text-primary" style="font-size:12px;" href={% url "register" %}>
-              <i class="fas fa-user-plus"></i>Register</a>
-          </li>          
-          <li
           {% if "login" in request.path %}
           class="nav-item active mr-3"
           {% else %}
@@ -124,6 +115,15 @@
             <a class="nav-link text-primary" style="font-size:12px;" href={% url "login" %}>
               <i class="fas fa-sign-in-alt"></i>Login</a>
           </li>
+          <li
+          {% if "register" in request.path %}
+          class="nav-item active mr-3"
+          {% else %}
+          class="nav-item mr-3"
+          {% endif %}>
+            <a class="nav-link text-primary" style="font-size:12px;" href={% url "register" %}>
+              <i class="fas fa-user-plus"></i>Register</a>
+          </li>          
         {% endif %}
           <li
           {% if 'organization' in request.path %}
@@ -175,7 +175,7 @@
           </li>
         </ul>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" align="right">
         <ul class="navbar-nav">
           <li
           {% if 'pdpolicy' in request.path %}

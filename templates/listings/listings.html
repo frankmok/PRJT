@@ -27,7 +27,7 @@
           <li class="breadcrumb-item">
             <a href={% url "index" %}> <i class="fas fa-home"></i> Home</a>
           </li>
-          <li class="breadcrumb-item active">Browse Listings</li>
+          <li class="breadcrumb-item active">Browse Listings of total <span class="text-secondary">{{total}}</span> E-Car(s)</li>
         </ol>
       </nav>
     </div>
@@ -121,7 +121,6 @@
         </div>
         {% endif %}
       </div>
-      <p style="font-size: 40px;">Total listed results: {{total}} E-Car(s)</p>
       <div class="row">
         <div class="col-md-12">
           <!-- pagination part of the code -->
@@ -164,6 +163,7 @@
           {% endif %}
         </div>
       </div>
+      <p style="font-size: 40px;">Total listed results: {{total}} E-Car(s)</p>
     </div>
 </section>
 

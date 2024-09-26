@@ -7,28 +7,12 @@ brand_model_choices = {'Reset Both Brand and Model (Any)': ''} | {listing.brand 
 colors_set = {listing.color for listing in listings}
 color_choices = {'Reset Color (Any)': ''} | {color: color for color in colors_set}
 
-budget_choices = {
-    'Reset Budget (Any)': '0',
-    'HK$200,000': '200000',
-    'HK$400,000': '400000',
-    'HK$600,000': '600000',
-    'HK$800,000': '800000',
-    'HK$1,000,000': '1000000',
-    'HK$1,200,000': '1200000',
-    'HK$1,400,000': '1400000',
-    'HK$1,600,000': '1600000',
-    'HK$1,800,000': '1800000',
-    'HK$2M+': '2000000',
-}
+max_price = max({listing.price for listing in listings})
 
-hand_drive_choices = {
-    'Reset Hand Drive (Any)': '', 
-    'Right-hand-drive': 'Right',
-    'Left-hand-drive': 'Left',
-}
+grade = 200000
 
-wheels_drive_choices = {
-    'Reset Wheels Drive (Any)': '',
-    'Four-wheels-drive': 'Four',
-    'Two-wheels-drive': 'Two',
-}
+budget_choices = {'Reset Budget (Any)': '0'} | {'HK$'+f'{g:,}': str(g) for g in range(grade, max_price + grade, grade)}
+
+hand_drive_choices = {'Reset Hand Drive (Any)': ''} | {listing.hand_drive + '-hand-drive': listing.hand_drive for listing in listings}
+
+wheels_drive_choices = {'Reset Wheels Drive (Any)': ''} | {listing.wheels_drive + '-wheels-drive': listing.wheels_drive for listing in listings}

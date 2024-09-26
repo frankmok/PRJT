@@ -88,11 +88,11 @@
             </li>
             {% else %}
             <li>
-              <a href={% url "register" %}><i class="fas fa-user-plus"></i>Register</a>
-            </li>          
-            <li>
               <a href={% url "login" %}><i class="fas fa-sign-in-alt"></i>Login</a>
             </li>
+            <li>
+              <a href={% url "register" %}><i class="fas fa-user-plus"></i>Register</a>
+            </li>          
             {% endif %}
             <li>
               <a href={% url "organization" %}>Organization</a>
